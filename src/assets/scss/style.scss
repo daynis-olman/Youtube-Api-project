@@ -1,0 +1,249 @@
+/* Normalize css */
+@import 'normalize/normalize/import-now';
+
+
+/*==============================================*/
+/*==============================================*/
+/* Youtube concept HTML custom style start here */
+/*==============================================*/
+/*==============================================*/
+
+
+/* variables css */
+@import 'variables';
+@import 'mixins';
+
+/* element style */
+html{ height: 100%;}
+body{ font-family: $font-family-sans-serif; color: $dark-blue;  font-size: 14px; line-height:20px; height: 100%;;}
+*{ box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;}
+.text-center{ text-align: center}
+.text-left{ text-align: left}
+.text-right{ text-align: right}
+button{ border: 0; &:focus{ outline: none;}}
+.btn{  
+    border-radius:$border-radius2; line-height: 30px;  background-color: $white; color: $dark-blue; padding: 0 15px; font-size: 14px; letter-spacing: 0.6px; display: inline-block; vertical-align: middle; 
+    &.pink{ background-color: $pink; color: $white; &:hover{ background: darken( $pink, 10%);}}
+    &.icon-btn{ padding: 0; min-height: 30px; width: 30px; text-align: center; }
+    img{ vertical-align: middle; margin:-2px auto 0 auto;}
+    &.tw{ background: #4dccf1; &:hover{ background: #20a9d1;}}
+    &.fb{ background: #8094f5; &:hover{ background: #435ddb;}}
+    &.gp{ background: #f968a4; &:hover{ background: #cb3171;}}
+    &.thumbnails{ background: url(../img/ic-list1.png) no-repeat center center; &:hover, &.active{ background: url(../img/ic-list1_h.png) no-repeat center center;}}
+    &.listview{ background: url(../img/ic-list2.png) no-repeat center center; &:hover, &.active{ background: url(../img/ic-list2_h.png) no-repeat center center;}}
+}
+.form-control{ appearance:none; -moz-appearance:none; -webkit-appearance:none; -ms-appearance:none; border-radius: $border-radius2; border:1px solid $light-blue; color: $light-blue;  font-size: 12px;line-height: 28px; min-height: 30px; padding: 0 15px; display: inline-block; vertical-align: middle; }
+select.form-control{background: url(../img/ic-arrow.png) no-repeat center right; padding-right: 40px;-ms-appearance:none;}
+select::-ms-expand {display: none;}
+img{vertical-align: middle; }
+.justify-center{ flex-wrap: wrap;}
+figure{ margin: 0}
+header.fixed-top{ position: fixed; left: 0; top: 0}
+.wrapper{ height: auto; min-height: 100%; width: 100%; position: relative; display: flex}
+.fixed-top + .wrapper{ padding-top: 60px;}
+.fixed-top + .wrapper .sidenav{ padding-top: 60px;}
+.row{ margin:0 (-$spacing/2); clear:both;}
+.container-fluid{ width: 100%; position: relative}
+.container{ width: 100%; padding: 0 ($spacing/2); max-width: 994px; margin: 0 auto; z-index: 1; position: relative; }
+.page-content{ border-radius: $border-radius1; background: $white; padding: 34px 40px;}
+.clear-fix{ clear: both;}
+.pull-right{ float:right !important;}
+.pull-left{ float:left !important;}
+.truncate{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+/* animation rotate */
+.spin-animation{-webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+/* Rseponsive grid */
+@media screen and (min-width:$extrasmall){
+    @for $i from  1 through $grid-column{
+        .col-xs-#{$i}{ width: 100%*(1/$grid-column)*$i; padding:0 ($spacing/2); float:left}
+    }
+    .hide-xs{ display: none !important}
+    header .col-xs-auto { -ms-flex: 0 0 auto;  flex: 0 0 auto;  width: auto;  max-width: none;}
+}
+@media screen and (min-width:$small){
+    @for $i from  1 through $grid-column{
+        .col-sm-#{$i}{ width: 100%*(1/$grid-column)*$i; padding:0 ($spacing/2); float:left}
+    }
+    .hide-sm{ display: none !important}
+    header .col-sm-auto { -ms-flex: 0 0 auto;  flex: 0 0 auto;  width: auto;  max-width: none;}
+}
+@media screen and (min-width:$medium){
+    @for $i from  1 through $grid-column{
+        .col-md-#{$i}{ width: 100%*(1/$grid-column)*$i; padding:0 ($spacing/2); float:left}
+    }
+    .hide-md{ display: none !important}
+    header .col-md-auto { -ms-flex: 0 0 auto;  flex: 0 0 auto;  width: auto;  max-width: none;}
+}
+@media screen and (min-width:$large){
+    @for $i from  1 through $grid-column{
+        .col-lg-#{$i}{ width: 100%*(1/$grid-column)*$i; padding:0 ($spacing/2); float:left}
+    }
+    .hide-lg{ display: none !important}
+    header .col-lg-auto { -ms-flex: 0 0 auto;  flex: 0 0 auto;  width: auto;  max-width: none;}
+}
+/* Header css */
+header{ 
+    height: 60px; width: 100%; background: $white; @include shadow(0px, 2px, 6px, 0px, rgba(0, 0, 0, 0.08)); padding: 0 30px; display: flex; z-index: 9; position: relative;
+    .col{-ms-flex-preferred-size: 0; flex-basis: 0; -ms-flex-positive: 1; flex-grow: 1; max-width: 100%;}
+    .col-auto{-ms-flex: 0 0 auto;flex: 0 0 auto;  width: auto; max-width: none;}
+    .nav-toggle{ height: 60px; width: 48px; background: url(../img/ic-menu.png) no-repeat center center; display: inline-block; cursor: pointer; margin-right: 12px;float: left; }
+    .brand-icon{ display: inline-block; line-height: 60px; vertical-align: top; float: left; img{ vertical-align: middle; margin-top: -2px; }}
+    .search{ 
+        height: 60px; line-height:54px; padding: 3px 15px 0 40px;  background: url(../img/ic-search.png) no-repeat 10px center; border: 0; max-width: 180px; border-bottom: 3px solid transparent; display: inline-block; vertical-align: middle; 
+        &:focus{ outline: none; border-bottom: 3px solid $normal-blue;}
+    }
+}
+/* navigation css */
+.nav{ 
+    display: inline-block; list-style: none; margin: 0; padding: 0; vertical-align: middle;
+    li{ 
+        display: inline-block; line-height: 60px; padding: 0 25px;
+        a { 
+            color: $dark-blue; line-height: 60px; padding: 0; display: inline-block; position: relative; font-size: 14px; font-weight: 500; text-decoration: none;
+            &:before{ content: " "; height: 3px; width: 100%; position: absolute; bottom: 0; left: 0}
+            .count{border-radius: 50%;background-color: rgb(250, 34, 118); position: absolute;right:0px; top:20px; width:8px; height: 8px; display: block;}
+            &.userlogged{ 
+                figure{
+                    border-radius: 50%; width: 40px; height: 40px; display: inline-block;vertical-align: middle; overflow: hidden; background: rgb(224, 132, 154);  
+                    img{ vertical-align: top; margin: 0 auto; width: 100%;}
+                }
+                
+            }
+        }
+        &.active, &:hover {
+            a:before{ background: $normal-blue;}
+        }
+    }
+    &.right{ li{ padding: 0 15px;}}
+}
+/* sidebar css */
+.sidenav{
+    height: 100%; overflow-y: auto; background: $white; width: 300px; padding: 0 30px; position: absolute; left: 0; top: 0; z-index: 2; border-right: 1px solid #f5f5f7; @include transition(all, ease, 0.5s);
+    & + .container-fluid{ margin-left: 300px; display: block;}
+    .nav-title{  
+        font-weight: 500; font-size: 14px; color: $dark-blue; margin: 12px 0 10px 0; padding: 0 15px; line-height:22px;
+        &:first-of-type{ margin-top: 34px;}
+    }
+    .nav{ 
+        width: 100%; margin: 12px 0;
+        li{
+            line-height: 42px; height: 42px; width: 100%; padding: 0; margin-bottom: 1px;
+            .icon{ margin-right: 14px; width: 24px; display: inline-block; img{ vertical-align: middle; margin-top: -2px;} }
+            a{ 
+                line-height: 42px; color: $light-blue; padding: 0 15px; font-weight: 400; width: 100%; position: relative; @extend .truncate;
+                .count-number{ color: $pink; font-weight: 600; position: absolute; right: 0;}
+            }
+            &.active, &:hover {
+                a:before{ display: none;}
+            }
+            &.image-link{
+                .img-channel{border-radius: 2px; overflow: hidden; height: 24px; width: 24px; display: inline-block; vertical-align: middle; margin-right: 14px; img{ vertical-align: top}}
+                a{ padding-right: 30px;
+                }
+            }
+        }
+    }
+}
+/* video page css */
+.cover{ 
+    height: 305px; position: absolute; width: 100%; display: block; z-index: 0; overflow: hidden;
+    .background{ position: relative;  min-width: 100%; min-height: 100%; }
+}
+.social{ 
+    padding: 0; margin: 0; list-style: none;  display: inline-block;
+    li{ float: left; margin: 0 0 0 8px;}
+}
+.channel-details{
+    padding: 40px 40px 30px 40px; display: block; width: 100%;
+    .channel-pic{ height: 96px; width: 96px; border-radius: $border-radius1; overflow: hidden; img{ vertical-align: top}}
+    .channel-name{ 
+        margin: 42px 0 0 0; line-height: 30px; vertical-align: middle;
+        h1{
+            margin: 0; display: inline-block; color: $white; font-size: 22px; font-weight: 400; line-height: 30px; margin-right: 20px;
+            b{ font-weight: 600;}
+        }
+        .btn{ vertical-align: top}
+    }
+}
+.section-title{ 
+    line-height: 30px; font-size: 19px; vertical-align: middle; color: $dark-blue; font-weight: 500; margin: 0;
+    &+p{ color: $light-blue; font-size: 13px; font-weight: 400; margin: 0; margin-bottom: 15px; line-height: 25px;}
+}
+.sorting{ margin-right: 30px;}
+.media-block{
+    border-radius: $border-radius1; background: $white; overflow: hidden; @include shadow(0px, 8px, 18px, 0px, rgba(0, 0, 0, 0.06)); margin: 15px 0 40px 0; display: block; text-decoration: none; cursor: pointer;
+    & > figure{ 
+        height: 120px; width: 100%; display: block; border-radius: $border-radius1 $border-radius1 0 0; overflow: hidden; background: $light-blue;
+        img{ max-width: 100%; min-height: 100%; width: 100%;}
+    }
+    .details{ 
+        padding: 20px; 
+        .title-video{
+            width: 100%; line-height: 22px; font-size: 13px; color: $normal-blue; @extend .truncate; display: block;  margin: 0; font-weight: 600;
+            & + p{width: 100%; line-height: 26px; font-size: 12px; color: $dark-blue; margin: 0; margin-bottom: 28px;}
+        }
+        .viewers{ 
+            font-size: 12px; line-height: 14px; margin-bottom: 6px; color: $light-blue; vertical-align: middle;
+            img{ margin-right: 5px; vertical-align: middle;}
+        }
+    }
+}
+.reload{ 
+    margin: 0 auto; height: 21px; width: 21px; text-align: center; vertical-align: middle; line-height: 20px; 
+    img{@extend .spin-animation}
+}
+iframe{ width: 100% !important}
+
+
+
+/* Rseponsive grid */
+@media screen and (max-width:($large)-1){
+    .sidenav{ width: 250px; margin-left: -250px; & + .container-fluid{ margin-left: 0px; }}
+    .page-content{ padding: 24px 30px}
+    .media-block .details { padding: 15px;}
+    .nav li { padding: 0 15px;}
+    header{ padding: 0 15px; }
+    .sidenav{ padding: 0 15px; padding-top: 60px;}
+    .menu-active .sidenav{ margin-left: 0; @include shadow(2px, 5px, 15px, 0px, rgba(0, 0, 0, 0.1 ))}
+}
+@media screen and (max-width:($medium)-1){
+    .page-content{ padding: 16px 20px}
+    .media-block .details { padding: 10px;}
+    .nav li a .count{ top: 12px;}
+    header{ padding: 0 15px; display: block; height: 88px}
+    header .main-nav{ float: left; width: 100%; position: absolute; top: 44px; background: $white; left: 0; border-top: 1px solid #f3f3f3}
+    header .nav-toggle, header .main-nav, header .search , header .brand-icon{ height: 44px; line-height: 40px;}
+    header .nav li, header .nav li a {line-height: 42px;}
+    .fixed-top + .wrapper .sidenav, .fixed-top + .wrapper { padding-top: 88px;}
+    .channel-details {padding: 20px 20px 15px 20px;}
+    .channel-details .channel-name { margin: 22px 0 0 0;}
+    .sidenav .nav-title:first-of-type { margin-top: 24px;}
+    .sidenav .nav-title{ margin-bottom: 5px;}
+    .sidenav .nav{ margin: 5px 0}
+    .sidenav .nav li, .sidenav .nav li a{ line-height: 30px; height: 30px;}
+    .videoembed{ height: 380px}
+}
+@media screen and (max-width:($small)-1){
+    header{ padding: 0}
+    .page-content{ padding: 15px;}
+    .channel-details{ text-align: center; .channel-pic{ text-align: center; margin:  0 auto; } .channel-name{ text-align: center; h1{margin-right: 0; margin-bottom: 15px;}}}
+    .section-title + p{ line-height: 20px; margin-top: 5px}
+    .media-block{ margin-bottom: 10px;}
+    .section-title{ margin-top: 10px}    
+    .viewers{ width: 100%; text-align: left}
+    .videoembed{ height: 250px}
+    header .brand-icon{ margin-right: 10px; img{ width: 70px; margin-top: 3px;}}
+    .nav li { padding: 0 7px; a{font-size: 12px;}}
+    .nav.right li {  padding: 0 10px;}
+    header .search{display: none}
+    .nav li a.userlogged figure{ height: 30px; width: 30px;}
+    .media-block .details .title-video{ font-size: 11px; line-height: 16px;}
+    .media-block .details .title-video+p{ font-size: 11px; line-height: 16px; margin-bottom: 15px;}
+    .media-block .details .viewers{ font-size: 11px;}
+    .page-content {padding: 10px;}
+}
+
+
